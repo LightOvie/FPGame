@@ -133,7 +133,7 @@ public class Gun : MonoBehaviour
 				currentBullet.GetComponent<Rigidbody>().AddForce(directionWtihSpread.normalized * gunData.shootForce, ForceMode.Impulse);
 				//currentBullet.GetComponent<Rigidbody>().AddForce(fpsCamera.transform.up * upwardForce, ForceMode.Impulse);
 				Destroy(currentBullet, timeAfterShoot);
-
+				
 
 				gunData.currentAmo--;
 
@@ -168,6 +168,6 @@ public class Gun : MonoBehaviour
 
 		}
 
-
+			
 	}
 }
