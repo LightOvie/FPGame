@@ -6,7 +6,7 @@ using UnityEngine;
 public class DamageText : MonoBehaviour
 {
 	float lifeTime = 1.5f;
-	float speed = 1f;
+	float speed = 50f;
 	float spawnRangeX = 50f;
 	float spawnRangeY = 50f;
 	TextMeshProUGUI damageText;

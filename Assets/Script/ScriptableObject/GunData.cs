@@ -21,8 +21,11 @@ public class GunData : ScriptableObject
 	public float spread;
 	public float shootForce;
 	public int totalAmo;
+	public  int startMagSize = 90;
 	[HideInInspector]
 	public bool reloading;
+
+
 
 
 

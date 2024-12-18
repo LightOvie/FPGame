@@ -465,8 +465,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3768130565132194206}
+  - component: {fileID: 858329803624320412}
   - component: {fileID: 1410602363937007664}
-  - component: {fileID: 5307017248514272980}
   m_Layer: 0
   m_Name: Detetion
   m_TagString: Untagged
@@ -482,26 +482,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054489923466949056}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.009999999}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.39, z: -0.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5198369649169420871}
+  m_Father: {fileID: 8349397572283510614}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1410602363937007664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054489923466949056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13c9c9fa821327f4486f6a9dac1bd861, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!135 &5307017248514272980
+--- !u!135 &858329803624320412
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -520,8 +508,20 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 2.5
+  m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!114 &1410602363937007664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054489923466949056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c9c9fa821327f4486f6a9dac1bd861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1064610345858696006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,7 +1226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2423048355108275226}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
@@ -1938,7 +1938,6 @@ Transform:
   - {fileID: 4348743587800041433}
   - {fileID: 6697243852857008909}
   - {fileID: 5662903463982992957}
-  - {fileID: 3768130565132194206}
   m_Father: {fileID: 8349397572283510614}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3716232467641272399
@@ -3262,7 +3261,7 @@ Transform:
   m_GameObject: {fileID: 8020333315336946429}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0.9999999, z: -0.75}
+  m_LocalPosition: {x: 0, y: 1.7499999, z: -0.75}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3502,7 +3501,7 @@ GameObject:
   - component: {fileID: 5573183995968457211}
   - component: {fileID: 399634233581185706}
   m_Layer: 0
-  m_Name: Black Widow
+  m_Name: Small Black Widow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3518,7 +3517,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8685770976246780239}
@@ -3530,6 +3529,7 @@ Transform:
   - {fileID: 1041070771967822295}
   - {fileID: 5198369649169420871}
   - {fileID: 9144844785751641286}
+  - {fileID: 3768130565132194206}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &1669396387975991792
@@ -3551,13 +3551,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1
-  m_Radius: 3
+  m_Height: 3
+  m_Radius: 3.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 3, z: 0}
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!114 &5573183995968457211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3572,7 +3572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 2
   _rotationSpeed: 5
-  _maxHealth: 200
+  _maxHealth: 100
   _attackCooldown: 1.5
   damageTextPrefab: {fileID: 4227447675876588558, guid: eae385388e7267b42b747d1a5a8109b1, type: 3}
   textSpawnPoint: {fileID: 1041070771967822295}

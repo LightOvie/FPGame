@@ -19,6 +19,7 @@ public class Gun : MonoBehaviour
 	{
 		gunData.currentAmo = gunData.magSize;
 		gunData.reloading = false;
+		gunData.totalAmo = gunData.startMagSize;
 
 	}
 	private void Start()
@@ -108,14 +109,17 @@ public class Gun : MonoBehaviour
 
 				if (Physics.Raycast(ray, out RaycastHit hit))
 				{
-
+					Debug.Log($"Hit object: {hit.transform.name}");
 					targetPoint = hit.point;
+					
 					IDamageable damageable = hit.transform.GetComponent<IDamageable>();
 					damageable?.TakeDamage(gunData.damage);
+						
 
 				}
 				else
 				{
+					Debug.Log("No hit detected.");
 					targetPoint = ray.GetPoint(75);
 
 				}

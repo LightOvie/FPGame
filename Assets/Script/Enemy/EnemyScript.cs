@@ -111,10 +111,9 @@ public class EnemyScript : MonoBehaviour, IDamageable
 	}
 
 	public void TakeDamage(float damage)
-	{
-
+	{		
 		Health -= damage;
-
+		ShowDamageText(damage);
 		if (Health <= 0)
 		{
 			Die();

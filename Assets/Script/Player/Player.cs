@@ -25,6 +25,7 @@ public class Player : MonoBehaviour,IDamageable
 	{
 		Health -= damage;
 		//OnHealthChange?.Invoke(Health);
+		
 
 	}
 
