@@ -106,8 +106,9 @@ public class Gun : MonoBehaviour
 				Ray ray = fpsCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
 				Vector3 targetPoint;
+				int layerMask = ~LayerMask.GetMask("DetectionTrigger");
 
-				if (Physics.Raycast(ray, out RaycastHit hit))
+				if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity,layerMask))
 				{
 					Debug.Log($"Hit object: {hit.transform.name}");
 					targetPoint = hit.point;

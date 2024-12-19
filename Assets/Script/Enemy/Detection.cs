@@ -16,6 +16,7 @@ public class Detection : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
+			Debug.Log("Player Inside");
 			enemy.SetState(EnemyStats.Attack);
 			
 		}
@@ -26,6 +27,7 @@ public class Detection : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
+			Debug.Log("Player Outside");
 			enemy.SetState( EnemyStats.Chase);
 		}
 	}

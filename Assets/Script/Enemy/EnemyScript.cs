@@ -16,20 +16,20 @@ public class EnemyScript : MonoBehaviour, IDamageable
 	[SerializeField] float _rotationSpeed;
 	[SerializeField] float _maxHealth;
 	[SerializeField] float _attackCooldown;
-	
+
 
 	[Header("Damage Text")]
 	[SerializeField] GameObject damageTextPrefab;
 	[SerializeField] Transform textSpawnPoint;
 
-	
+
 	public float Health { get; set; }
 
 
 	float _attackCooldownTimer;
-	
+
 	float _verticalVelocity;
-	float _gravity = 10;
+	float _gravity = 10f;
 
 
 	private bool isDead = false;
@@ -88,7 +88,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
 		}
 
 		direction.y = _verticalVelocity;
-		if (_characterController.enabled) 
+		if (_characterController.enabled)
 		{
 			_characterController.Move(direction * Time.deltaTime * _speed);
 		}
@@ -111,7 +111,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
 	}
 
 	public void TakeDamage(float damage)
-	{		
+	{
 		Health -= damage;
 		ShowDamageText(damage);
 		if (Health <= 0)
@@ -134,11 +134,11 @@ public class EnemyScript : MonoBehaviour, IDamageable
 			damageText.transform.SetParent(GameObject.Find("Canvas").transform, false);
 		}
 	}
-	void Die()
+	public void Die()
 	{
 		_speed = 0;
 		_animator.SetBool("IsDead", true);
-		
+
 		if (GameManager.instance != null)
 		{
 			GameManager.instance.InccreadeDeadEnimies();
@@ -146,7 +146,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
 
 		isDead = true;
 
-	
+
 		if (_characterController != null)
 		{
 			_characterController.enabled = false;

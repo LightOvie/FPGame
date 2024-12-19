@@ -4,29 +4,48 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+	public GameObject[] enemyPrefabs;
+	public int maxEnemies = 5;
+	public float spawnRadius = 10f;
+	public float spawnInterval = 2f;
+	public float activaionDistance = 50f;
 
+	private int currentEnemyCount = 0;
+	private float lastSpawnTime = 0f;
 
-    [SerializeField]
-    private GameObject spiderPrefab;
-    [SerializeField]
-    private GameObject bigSpiderPrefab;
+	public void CheckAndActivate(Vector3 playerPosition)
+	{
+		float distanceToPlayer = Vector3.Distance(playerPosition, transform.position);
 
-    private float spriderInterval = 3.5f;
-    private float bigSpiderInterval = 10f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(SpawnEnemy(spriderInterval, spiderPrefab));
-        StartCoroutine(SpawnEnemy(bigSpiderInterval, bigSpiderPrefab));
-    }
+		if (distanceToPlayer <= activaionDistance)
+		{
+			if (Time.time -lastSpawnTime>=spawnInterval && currentEnemyCount<maxEnemies)
+			{
+				SpawnEnemy();
+				lastSpawnTime = Time.time;	
+			}
+		}
+	}
 
+	void SpawnEnemy()
+	{
 
+		if (enemyPrefabs.Length==0)
+		{
+			Debug.LogWarning("EnemySpawner does not contain any prefab");
+			return;
 
+		}
 
-    private IEnumerator SpawnEnemy(float interval, GameObject enemyPrefab)
-    {
-        yield return new WaitForSeconds(interval);
-        GameObject newEnemy = Instantiate(enemyPrefab, new Vector3(Random.Range(-3f, 3), Random.Range(-3f, 3), 0), Quaternion.identity);
-        StartCoroutine(SpawnEnemy(interval, enemyPrefab));
-    }
+		GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+
+		Vector3 spawnPosition= transform.position+Random.insideUnitSphere*spawnRadius;
+		spawnPosition.y = transform.position.y;
+		
+		GameObject enemy=Instantiate(enemyPrefab, spawnPosition,Quaternion.identity);
+		currentEnemyCount++;
+		//When enemy die currentEnemyCount shoud decrease
+		// enemy.GetComponent<EnemyScript>().Die();
+
+	}
 }

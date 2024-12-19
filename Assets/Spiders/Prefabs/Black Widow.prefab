@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 3768130565132194206}
   - component: {fileID: 1410602363937007664}
   - component: {fileID: 5307017248514272980}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Detetion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,9 +482,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054489923466949056}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.009999999}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.008700003, z: -0.015000002}
+  m_LocalScale: {x: 0.01, y: 0.010000001, z: 0.010000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5198369649169420871}
@@ -521,7 +521,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1064610345858696006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,7 +1921,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3701943779113559351}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
@@ -1938,9 +1938,10 @@ Transform:
   - {fileID: 4348743587800041433}
   - {fileID: 6697243852857008909}
   - {fileID: 5662903463982992957}
+  - {fileID: 1041070771967822295}
   - {fileID: 3768130565132194206}
   m_Father: {fileID: 8349397572283510614}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &3716232467641272399
 GameObject:
   m_ObjectHideFlags: 0
@@ -3261,12 +3262,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8020333315336946429}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0.9999999, z: -0.75}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.007500001, z: -0.009999997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8349397572283510614}
+  m_Father: {fileID: 5198369649169420871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8047489743332245404
 GameObject:
@@ -3501,7 +3502,7 @@ GameObject:
   - component: {fileID: 1669396387975991792}
   - component: {fileID: 5573183995968457211}
   - component: {fileID: 399634233581185706}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Black Widow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3527,7 +3528,6 @@ Transform:
   - {fileID: 3299815547202948287}
   - {fileID: 1953188787387430925}
   - {fileID: 6566116862927186746}
-  - {fileID: 1041070771967822295}
   - {fileID: 5198369649169420871}
   - {fileID: 9144844785751641286}
   m_Father: {fileID: 0}
@@ -3551,13 +3551,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1
-  m_Radius: 3
+  m_Height: 0.8
+  m_Radius: 1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 3, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &5573183995968457211
 MonoBehaviour:
   m_ObjectHideFlags: 0
