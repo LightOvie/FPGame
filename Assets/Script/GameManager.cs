@@ -6,6 +6,8 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class GameManager : MonoBehaviour
 {
 
+
+	GameStatus gameStatus;
 	public static GameManager instance;
 	//Counter dead animes 
 	//Status of the game 
@@ -16,13 +18,16 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	TMP_Text deadEnimiesText;
 
+	
+
 	private int counterDeadEnimes;
 	private float stopwatchTime;
 
-	
+	GunData gunData;
 	private void Awake()
 	{ 
 		instance = this;
+		gunData= new GunData();
 	}
 
 
@@ -35,8 +40,10 @@ public class GameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		//UpdateStopWatch(); do it later add text in Canvas for timer
+		
 		deadEnimiesText.text=string.Format("Enimies: "+ counterDeadEnimes.ToString());
+		
+		UpdateStopWatch();
 	}
 	public void InccreadeDeadEnimies() {
 

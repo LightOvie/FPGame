@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using TMPro;
 public class Gun : MonoBehaviour
 {
 	const float timeAfterShoot = 3f;
@@ -13,14 +14,18 @@ public class Gun : MonoBehaviour
 	[SerializeField] ParticleSystem muzzleParticleSystem;
 	[SerializeField] GameObject bullet;
 	[SerializeField] Camera fpsCamera;
+	[SerializeField]
+	TMP_Text bulletText;
 	float timeSinceLastShoot;
 
+	
 	private void Awake()
 	{
 		gunData.currentAmo = gunData.magSize;
 		gunData.reloading = false;
 		gunData.totalAmo = gunData.startMagSize;
-
+		
+		
 	}
 	private void Start()
 	{
@@ -28,7 +33,14 @@ public class Gun : MonoBehaviour
 		PlayerShoot.shootInput += Shoot;
 		PlayerShoot.reloadInput += StartReload;
 
+		
+	}
+	private void Update()
+	{
+		timeSinceLastShoot += Time.deltaTime;
+		Debug.DrawRay(muzzle.position, muzzle.forward);
 
+		DisplayBullets();
 	}
 
 	public void StartReload()
@@ -138,7 +150,7 @@ public class Gun : MonoBehaviour
 				currentBullet.GetComponent<Rigidbody>().AddForce(directionWtihSpread.normalized * gunData.shootForce, ForceMode.Impulse);
 				//currentBullet.GetComponent<Rigidbody>().AddForce(fpsCamera.transform.up * upwardForce, ForceMode.Impulse);
 				Destroy(currentBullet, timeAfterShoot);
-				
+
 
 				gunData.currentAmo--;
 
@@ -156,13 +168,7 @@ public class Gun : MonoBehaviour
 
 	public bool CheckIfAmoEmpty() => gunData.currentAmo <= 0;
 
-	private void Update()
-	{
-		timeSinceLastShoot += Time.deltaTime;
-		Debug.DrawRay(muzzle.position, muzzle.forward);
-
-
-	}
+	
 	private void OnGunShoot()
 	{
 
@@ -174,5 +180,9 @@ public class Gun : MonoBehaviour
 		}
 
 			
+	}
+	public void DisplayBullets()
+	{
+		bulletText.text = string.Format(gunData.currentAmo.ToString() + "/" + gunData.totalAmo.ToString());
 	}
 }
