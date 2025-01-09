@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum GameStatus
+public enum GameStatus
 {
 	InProgress,
-	GameOver
+	GameOver,
+	PausedGame
 }
+	

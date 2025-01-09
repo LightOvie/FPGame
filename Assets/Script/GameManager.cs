@@ -3,49 +3,100 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using static UnityEditor.Experimental.GraphView.GraphView;
+using System;
 public class GameManager : MonoBehaviour
 {
-
-
-	GameStatus gameStatus;
 	public static GameManager instance;
-	//Counter dead animes 
-	//Status of the game 
-	//Timer 
+
+	public GameStatus currentState;
+	public GameStatus previousState;
+
 	[SerializeField]
 	TMP_Text stopWatchDisplay;
-
 	[SerializeField]
 	TMP_Text deadEnimiesText;
 
-	
-
+	//[Header("Screens")]
+	//public GameObject pauseScreen;
+	//public GameObject resultScree;
+	public bool isGameOver { get { return currentState == GameStatus.GameOver; } }
 	private int counterDeadEnimes;
 	private float stopwatchTime;
 
 	GunData gunData;
 	private void Awake()
-	{ 
-		instance = this;
-		gunData= new GunData();
-	}
-
-
-	// Start is called before the first frame update
-	void Start()
 	{
-
+		instance = this;
+		gunData = ScriptableObject.CreateInstance<GunData>(); //Will be used later
 	}
+
+
+
 
 	// Update is called once per frame
 	void Update()
 	{
-		
-		deadEnimiesText.text=string.Format("Enimies: "+ counterDeadEnimes.ToString());
-		
-		UpdateStopWatch();
+
+		deadEnimiesText.text = string.Format("Enimies: " + counterDeadEnimes.ToString());
+
+
+
+
+		switch (currentState)
+		{
+			case GameStatus.InProgress:
+				CheckForPausedAndResume();
+				UpdateStopWatch();
+				break;
+			case GameStatus.GameOver:
+				break;
+			case GameStatus.PausedGame:
+				CheckForPausedAndResume();
+				break;
+			default:
+				Debug.LogWarning("STATE DOES NOT EXIST");
+				break;
+		}
 	}
-	public void InccreadeDeadEnimies() {
+
+	public void PauseGame()
+	{
+		if (currentState!=GameStatus.PausedGame)
+		{
+			ChangeState(GameStatus.PausedGame);
+			Time.timeScale = 0f;
+			
+			//pauseScreen.SetActive(true);
+		}
+	}
+	public void ResumeGame()
+	{
+		if (currentState == GameStatus.PausedGame)
+		{
+			ChangeState(previousState);
+			Time.timeScale = 1f;
+			
+			//pauseScreen.SetActive(false);
+		}
+	}
+
+	private void CheckForPausedAndResume()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			if (currentState==GameStatus.PausedGame)
+			{
+				ResumeGame();
+			}
+            else
+            {
+				PauseGame();
+            }
+        }
+	}
+
+	public void InccreadeDeadEnimies()
+	{
 
 		counterDeadEnimes++;
 	}
@@ -66,5 +117,26 @@ public class GameManager : MonoBehaviour
 		int second = Mathf.FloorToInt(stopwatchTime % 60);
 
 		stopWatchDisplay.text = string.Format("{0:00}:{1:00}", minutes, second);
+	}
+
+	public void ChangeState(GameStatus newState)
+	{
+		previousState = currentState;
+
+		currentState = newState;
+	}
+
+
+	public void GameOver()
+	{
+		ChangeState(GameStatus.GameOver);
+		Time.timeScale = 0f;
+		//DisplayResult();
+		Debug.Log("Game Over");
+	}
+
+	private void DisplayResult()
+	{
+		throw new NotImplementedException();
 	}
 }

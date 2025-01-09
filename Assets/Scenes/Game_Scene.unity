@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 8688803186435683820, guid: fd02805ee801de64a828e8190cac7784, type: 3}
-  - {fileID: 1328846188131475405, guid: 4a75cf92b0044184b873bb7959af1edd, type: 3}
+  - {fileID: 3456052664175466945, guid: 2b5673acb7784a343a68276cab8c97b3, type: 3}
   maxEnemies: 5
   spawnRadius: 10
   spawnInterval: 2
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 283656735}
   - component: {fileID: 283656736}
   - component: {fileID: 283656737}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 8688803186435683820, guid: fd02805ee801de64a828e8190cac7784, type: 3}
-  - {fileID: 1328846188131475405, guid: 4a75cf92b0044184b873bb7959af1edd, type: 3}
+  - {fileID: 3456052664175466945, guid: 2b5673acb7784a343a68276cab8c97b3, type: 3}
   maxEnemies: 5
   spawnRadius: 10
   spawnInterval: 2
@@ -544,7 +544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 8688803186435683820, guid: fd02805ee801de64a828e8190cac7784, type: 3}
-  - {fileID: 1328846188131475405, guid: 4a75cf92b0044184b873bb7959af1edd, type: 3}
+  - {fileID: 3456052664175466945, guid: 2b5673acb7784a343a68276cab8c97b3, type: 3}
   maxEnemies: 5
   spawnRadius: 10
   spawnInterval: 2
@@ -776,7 +776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 8688803186435683820, guid: fd02805ee801de64a828e8190cac7784, type: 3}
-  - {fileID: 1328846188131475405, guid: 4a75cf92b0044184b873bb7959af1edd, type: 3}
+  - {fileID: 3456052664175466945, guid: 2b5673acb7784a343a68276cab8c97b3, type: 3}
   maxEnemies: 5
   spawnRadius: 10
   spawnInterval: 2
@@ -827,7 +827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 8688803186435683820, guid: fd02805ee801de64a828e8190cac7784, type: 3}
-  - {fileID: 1328846188131475405, guid: 4a75cf92b0044184b873bb7959af1edd, type: 3}
+  - {fileID: 3456052664175466945, guid: 2b5673acb7784a343a68276cab8c97b3, type: 3}
   maxEnemies: 5
   spawnRadius: 10
   spawnInterval: 2
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 8688803186435683820, guid: fd02805ee801de64a828e8190cac7784, type: 3}
-  - {fileID: 1328846188131475405, guid: 4a75cf92b0044184b873bb7959af1edd, type: 3}
+  - {fileID: 3456052664175466945, guid: 2b5673acb7784a343a68276cab8c97b3, type: 3}
   maxEnemies: 5
   spawnRadius: 10
   spawnInterval: 2
@@ -1462,7 +1462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 8688803186435683820, guid: fd02805ee801de64a828e8190cac7784, type: 3}
-  - {fileID: 1328846188131475405, guid: 4a75cf92b0044184b873bb7959af1edd, type: 3}
+  - {fileID: 3456052664175466945, guid: 2b5673acb7784a343a68276cab8c97b3, type: 3}
   maxEnemies: 5
   spawnRadius: 10
   spawnInterval: 2
@@ -1513,7 +1513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 8688803186435683820, guid: fd02805ee801de64a828e8190cac7784, type: 3}
-  - {fileID: 1328846188131475405, guid: 4a75cf92b0044184b873bb7959af1edd, type: 3}
+  - {fileID: 3456052664175466945, guid: 2b5673acb7784a343a68276cab8c97b3, type: 3}
   maxEnemies: 5
   spawnRadius: 10
   spawnInterval: 2

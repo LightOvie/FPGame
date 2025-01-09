@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using TMPro;
+
 public class Gun : MonoBehaviour
 {
 	const float timeAfterShoot = 3f;

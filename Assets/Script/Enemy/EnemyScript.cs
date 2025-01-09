@@ -22,7 +22,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
 	[SerializeField] GameObject damageTextPrefab;
 	[SerializeField] Transform textSpawnPoint;
 
-
+	
 	public float Health { get; set; }
 
 
