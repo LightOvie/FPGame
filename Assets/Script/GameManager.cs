@@ -16,12 +16,17 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	TMP_Text deadEnimiesText;
 
-	//[Header("Screens")]
+	[Header("Screens")]
 	//public GameObject pauseScreen;
-	//public GameObject resultScree;
+	public GameObject resultScree;
 	public bool isGameOver { get { return currentState == GameStatus.GameOver; } }
 	private int counterDeadEnimes;
 	private float stopwatchTime;
+
+
+	[Header("Result Screen Display")]
+	public TMP_Text timeSurviveDisplay;
+	public TMP_Text totalDeadEnimies;
 
 	GunData gunData;
 	private void Awake()
@@ -129,14 +134,18 @@ public class GameManager : MonoBehaviour
 
 	public void GameOver()
 	{
+		timeSurviveDisplay.text=stopWatchDisplay.text;
+		totalDeadEnimies.text =counterDeadEnimes.ToString();
+		
 		ChangeState(GameStatus.GameOver);
 		Time.timeScale = 0f;
-		//DisplayResult();
+		DisplayResult();
 		Debug.Log("Game Over");
 	}
 
 	private void DisplayResult()
 	{
-		throw new NotImplementedException();
+		resultScree.SetActive(true);
+		Cursor.lockState = CursorLockMode.Confined;
 	}
 }

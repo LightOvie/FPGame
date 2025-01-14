@@ -21,28 +21,42 @@ public class Gun : MonoBehaviour
 	
 	private void Awake()
 	{
+		gunData = Instantiate(gunData);
 		gunData.currentAmo = gunData.magSize;
 		gunData.reloading = false;
 		gunData.totalAmo = gunData.startMagSize;
-		
-		
+
+
 	}
 	private void Start()
 	{
 
-		PlayerShoot.shootInput += Shoot;
-		PlayerShoot.reloadInput += StartReload;
+		
 
 		
+
+
 	}
+	
 	private void Update()
 	{
 		timeSinceLastShoot += Time.deltaTime;
 		Debug.DrawRay(muzzle.position, muzzle.forward);
 
 		DisplayBullets();
+		
+	}
+	private void OnEnable()
+	{
+		PlayerShoot.shootInput += Shoot;
+		PlayerShoot.reloadInput += StartReload;
 	}
 
+	private void OnDisable()
+	{
+		PlayerShoot.shootInput -= Shoot;
+		PlayerShoot.reloadInput -= StartReload;
+	}
 	public void StartReload()
 	{
 		if (!gunData.reloading)
@@ -109,12 +123,13 @@ public class Gun : MonoBehaviour
 
 	public void Shoot()
 	{
+		
 		if (gunData.currentAmo > 0)
 		{
-			if (CanShoot())
+			if (CanShoot() && !GameManager.instance.isGameOver)
 			{
+				Debug.Log($"Shoot");
 
-				
 				Ray ray = fpsCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
 				Vector3 targetPoint;
@@ -122,7 +137,7 @@ public class Gun : MonoBehaviour
 
 				if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity,layerMask))
 				{
-					Debug.Log($"Hit object: {hit.transform.name}");
+					
 					targetPoint = hit.point;
 					
 					IDamageable damageable = hit.transform.GetComponent<IDamageable>();
@@ -162,6 +177,7 @@ public class Gun : MonoBehaviour
 					Debug.Log("Reloading");
 				}
 			}
+			
 		}
 	}
 
