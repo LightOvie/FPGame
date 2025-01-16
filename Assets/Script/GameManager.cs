@@ -18,21 +18,30 @@ public class GameManager : MonoBehaviour
 
 	[Header("Screens")]
 	//public GameObject pauseScreen;
-	public GameObject resultScree;
-	public bool isGameOver { get { return currentState == GameStatus.GameOver; } }
-	private int counterDeadEnimes;
-	private float stopwatchTime;
-
+	public GameObject resultScren;
+	public GameObject pauseScreen;
 
 	[Header("Result Screen Display")]
 	public TMP_Text timeSurviveDisplay;
 	public TMP_Text totalDeadEnimies;
 
+
+	[HideInInspector]
+	public bool isGameOver { get { return currentState == GameStatus.GameOver; } }
+	[HideInInspector]
+	public bool isPaused { get { return currentState == GameStatus.PausedGame; } }
+
+	private int counterDeadEnimes;
+	private float stopwatchTime;
 	GunData gunData;
+
+
+
 	private void Awake()
 	{
 		instance = this;
 		gunData = ScriptableObject.CreateInstance<GunData>(); //Will be used later
+		DisableScreen();
 	}
 
 
@@ -70,8 +79,8 @@ public class GameManager : MonoBehaviour
 		{
 			ChangeState(GameStatus.PausedGame);
 			Time.timeScale = 0f;
-			
-			//pauseScreen.SetActive(true);
+			Cursor.lockState = CursorLockMode.None;
+			pauseScreen.SetActive(true);
 		}
 	}
 	public void ResumeGame()
@@ -80,8 +89,8 @@ public class GameManager : MonoBehaviour
 		{
 			ChangeState(previousState);
 			Time.timeScale = 1f;
-			
-			//pauseScreen.SetActive(false);
+			Cursor.lockState = CursorLockMode.Locked;
+			pauseScreen.SetActive(false);
 		}
 	}
 
@@ -110,10 +119,7 @@ public class GameManager : MonoBehaviour
 	{
 		stopwatchTime += Time.deltaTime;
 		UpdateStopWatchDisplay();
-		//if (stopwatchTime >= timeLimit)
-		//{
-
-		//}
+	
 	}
 
 	void UpdateStopWatchDisplay()
@@ -140,12 +146,20 @@ public class GameManager : MonoBehaviour
 		ChangeState(GameStatus.GameOver);
 		Time.timeScale = 0f;
 		DisplayResult();
-		Debug.Log("Game Over");
+		
 	}
+
+	void DisableScreen()
+	{
+		resultScren.SetActive(false);
+		pauseScreen.SetActive(false);
+	}
+
+
 
 	private void DisplayResult()
 	{
-		resultScree.SetActive(true);
+		resultScren.SetActive(true);
 		Cursor.lockState = CursorLockMode.Confined;
 	}
 }

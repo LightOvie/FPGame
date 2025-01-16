@@ -3575,6 +3575,8 @@ MonoBehaviour:
   _rotationSpeed: 5
   _maxHealth: 200
   _attackCooldown: 1.5
+  ammoPrefab: {fileID: 1766329957334483963, guid: f742c99540337e0479081faff2805710, type: 3}
+  spawnPosition: {fileID: 1041070771967822295}
   damageTextPrefab: {fileID: 4227447675876588558, guid: eae385388e7267b42b747d1a5a8109b1, type: 3}
   textSpawnPoint: {fileID: 1041070771967822295}
 --- !u!95 &399634233581185706
@@ -3610,9 +3612,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71226c55a2fb2e24aa8378fad1423717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!1 &8756870369409294498
 GameObject:
   m_ObjectHideFlags: 0

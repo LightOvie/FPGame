@@ -17,12 +17,18 @@ public class EnemyScript : MonoBehaviour, IDamageable
 	[SerializeField] float _maxHealth;
 	[SerializeField] float _attackCooldown;
 
+	[Header("Drop")]
+	[SerializeField]
+	GameObject ammoPrefab;
+	[SerializeField]
+	Transform spawnPosition;
+	float chanseToDrop=50f;
 
 	[Header("Damage Text")]
 	[SerializeField] GameObject damageTextPrefab;
 	[SerializeField] Transform textSpawnPoint;
 
-	
+
 	public float Health { get; set; }
 
 
@@ -116,6 +122,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
 		ShowDamageText(damage);
 		if (Health <= 0)
 		{
+			SpawnAmmo();
 			Die();
 		}
 	}
@@ -132,6 +139,19 @@ public class EnemyScript : MonoBehaviour, IDamageable
 			damageText.GetComponent<DamageText>().SetDamage(damage);
 
 			damageText.transform.SetParent(GameObject.Find("Canvas").transform, false);
+		}
+	}
+	void SpawnAmmo()
+	{
+		if (ammoPrefab!=null && spawnPosition!=null)
+		{
+			return ;
+		}
+		float randomValue = Random.Range(0, 100f);
+
+		if (randomValue<=chanseToDrop)
+		{
+			Instantiate(ammoPrefab, spawnPosition.position,Quaternion.identity);
 		}
 	}
 	public void Die()

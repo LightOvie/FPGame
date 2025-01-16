@@ -18,7 +18,7 @@ public class Gun : MonoBehaviour
 	TMP_Text bulletText;
 	float timeSinceLastShoot;
 
-	
+
 	private void Awake()
 	{
 		gunData = Instantiate(gunData);
@@ -31,20 +31,20 @@ public class Gun : MonoBehaviour
 	private void Start()
 	{
 
-		
 
-		
+
+
 
 
 	}
-	
+
 	private void Update()
 	{
 		timeSinceLastShoot += Time.deltaTime;
 		Debug.DrawRay(muzzle.position, muzzle.forward);
-
-		DisplayBullets();
 		
+		DisplayBullets();
+
 	}
 	private void OnEnable()
 	{
@@ -76,7 +76,7 @@ public class Gun : MonoBehaviour
 
 		if (gunData.totalAmo <= 0)
 		{
-			
+
 			gunData.totalAmo = 0;
 			gunData.currentAmo = 0;
 		}
@@ -84,38 +84,38 @@ public class Gun : MonoBehaviour
 		{
 			if (gunData.currentAmo <= 0)
 			{
-				
+
 				if (gunData.totalAmo >= gunData.magSize)
 				{
-				
+
 					gunData.totalAmo -= gunData.magSize;
 					gunData.currentAmo = gunData.magSize;
 				}
 				else
 				{
-				
+
 					gunData.currentAmo = gunData.totalAmo;
 					gunData.totalAmo = 0;
 				}
 			}
 			else
 			{
-				
+
 				int neededAmo = gunData.magSize - gunData.currentAmo;
 				if (gunData.totalAmo >= neededAmo)
 				{
-					
+
 					gunData.totalAmo -= neededAmo;
 					gunData.currentAmo += neededAmo;
 				}
 				else
 				{
-				
+
 					gunData.currentAmo += gunData.totalAmo;
 					gunData.totalAmo = 0;
 				}
 			}
-			
+
 			gunData.reloading = false;
 		}
 	}
@@ -123,10 +123,10 @@ public class Gun : MonoBehaviour
 
 	public void Shoot()
 	{
-		
-		if (gunData.currentAmo > 0)
+
+		if (gunData.currentAmo > 0 && !GameManager.instance.isGameOver && !GameManager.instance.isPaused)
 		{
-			if (CanShoot() && !GameManager.instance.isGameOver)
+			if (CanShoot())
 			{
 				Debug.Log($"Shoot");
 
@@ -135,14 +135,14 @@ public class Gun : MonoBehaviour
 				Vector3 targetPoint;
 				int layerMask = ~LayerMask.GetMask("DetectionTrigger");
 
-				if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity,layerMask))
+				if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
 				{
-					
+
 					targetPoint = hit.point;
-					
+
 					IDamageable damageable = hit.transform.GetComponent<IDamageable>();
 					damageable?.TakeDamage(gunData.damage);
-						
+
 
 				}
 				else
@@ -177,14 +177,17 @@ public class Gun : MonoBehaviour
 					Debug.Log("Reloading");
 				}
 			}
-			
+
 		}
 	}
 
 
 	public bool CheckIfAmoEmpty() => gunData.currentAmo <= 0;
 
-	
+	public void AddAmmo(int amount) //Do it done 
+	{
+		gunData.magSize += amount;
+	}
 	private void OnGunShoot()
 	{
 
@@ -195,7 +198,7 @@ public class Gun : MonoBehaviour
 
 		}
 
-			
+
 	}
 	public void DisplayBullets()
 	{
