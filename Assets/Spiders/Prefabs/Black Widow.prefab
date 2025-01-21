@@ -3573,7 +3573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 5
   _rotationSpeed: 5
-  _maxHealth: 200
+  _maxHealth: 120
   _attackCooldown: 1.5
   ammoPrefab: {fileID: 1766329957334483963, guid: f742c99540337e0479081faff2805710, type: 3}
   spawnPosition: {fileID: 1041070771967822295}

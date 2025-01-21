@@ -1548,9 +1548,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc519971b1ca49747b2f872406dec540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 25
   _rotationSpeed: 5
-  _maxHealth: 200
+  _maxHealth: 60
   _attackCooldown: 1.5
   ammoPrefab: {fileID: 1766329957334483963, guid: f742c99540337e0479081faff2805710, type: 3}
   spawnPosition: {fileID: 780809363822076639}

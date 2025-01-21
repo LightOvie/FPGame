@@ -9,10 +9,12 @@ public class BulletDrop : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			Gun gun = other.GetComponent<Gun>();
+			Debug.Log("Player Inside");
+			Gun gun = other.GetComponentInChildren<Gun>();
 			if (gun != null) {
 
 				
+				Debug.Log("Work Ammo Added");
 				gun.AddAmmo(ammoAmount);
 			}
 

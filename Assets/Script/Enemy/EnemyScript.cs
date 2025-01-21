@@ -22,7 +22,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
 	GameObject ammoPrefab;
 	[SerializeField]
 	Transform spawnPosition;
-	float chanseToDrop=50f;
+	float chanseToDrop = 50f;
 
 	[Header("Damage Text")]
 	[SerializeField] GameObject damageTextPrefab;
@@ -122,7 +122,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
 		ShowDamageText(damage);
 		if (Health <= 0)
 		{
-			SpawnAmmo();
+
 			Die();
 		}
 	}
@@ -143,15 +143,23 @@ public class EnemyScript : MonoBehaviour, IDamageable
 	}
 	void SpawnAmmo()
 	{
-		if (ammoPrefab!=null && spawnPosition!=null)
+		if (ammoPrefab == null && spawnPosition == null)
 		{
-			return ;
+
+			return;
+
 		}
+
+
 		float randomValue = Random.Range(0, 100f);
 
-		if (randomValue<=chanseToDrop)
+		if (randomValue <= chanseToDrop)
 		{
-			Instantiate(ammoPrefab, spawnPosition.position,Quaternion.identity);
+			Instantiate(ammoPrefab, spawnPosition.position, Quaternion.identity);
+		}
+		else
+		{
+			Debug.Log("Random value:"+randomValue.ToString());
 		}
 	}
 	public void Die()
@@ -172,6 +180,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
 			_characterController.enabled = false;
 		}
 		Destroy(gameObject, 1.5f);
+		SpawnAmmo();
 	}
 
 	public void SetState(EnemyStats newState)

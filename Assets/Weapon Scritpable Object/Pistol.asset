@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Tec-9
   damage: 20
-  maxDistance: 200
+  maxDistance: 300
   reloadTime: 1.5
   fireRate: 600
   currentAmo: 20

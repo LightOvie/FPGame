@@ -186,7 +186,8 @@ public class Gun : MonoBehaviour
 
 	public void AddAmmo(int amount) //Do it done 
 	{
-		gunData.magSize += amount;
+		gunData.totalAmo += amount;
+		Debug.Log("Amount: " + gunData.magSize.ToString());
 	}
 	private void OnGunShoot()
 	{

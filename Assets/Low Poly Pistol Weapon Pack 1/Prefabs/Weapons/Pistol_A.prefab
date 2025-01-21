@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 9015297319665791844}
   m_Layer: 0
   m_Name: Pistol_A
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -421,6 +421,7 @@ MonoBehaviour:
   muzzleParticleSystem: {fileID: 2455193178637914411, guid: 9858277441b3eb94ea95b3c304378bad, type: 3}
   bullet: {fileID: 2147895002730076875, guid: 12ec307e4794d5343818153e0717ee71, type: 3}
   fpsCamera: {fileID: 0}
+  bulletText: {fileID: 0}
 --- !u!114 &9015297319665791844
 MonoBehaviour:
   m_ObjectHideFlags: 0
