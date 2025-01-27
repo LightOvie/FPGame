@@ -28,6 +28,8 @@ public class EnemyScript : MonoBehaviour, IDamageable
 	[SerializeField] GameObject damageTextPrefab;
 	[SerializeField] Transform textSpawnPoint;
 
+	//[Header("Audio")]
+	//[SerializeField] private AudioClip damageSoundClip;
 
 	public float Health { get; set; }
 
@@ -115,11 +117,14 @@ public class EnemyScript : MonoBehaviour, IDamageable
 		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * _rotationSpeed);
 
 	}
+	
 
 	public void TakeDamage(float damage)
 	{
 		Health -= damage;
 		ShowDamageText(damage);
+		//SoundFXManager.instance.PlaySoundFXClip(damageSoundClip, transform,1f);
+
 		if (Health <= 0)
 		{
 

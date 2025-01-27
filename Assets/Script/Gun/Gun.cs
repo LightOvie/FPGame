@@ -14,8 +14,9 @@ public class Gun : MonoBehaviour
 	[SerializeField] ParticleSystem muzzleParticleSystem;
 	[SerializeField] GameObject bullet;
 	[SerializeField] Camera fpsCamera;
-	[SerializeField]
-	TMP_Text bulletText;
+	[SerializeField] TMP_Text bulletText;
+	[SerializeField] AudioClip shootSound;
+
 	float timeSinceLastShoot;
 
 
@@ -157,6 +158,7 @@ public class Gun : MonoBehaviour
 				float x = Random.Range(-gunData.spread, gunData.spread);
 				float y = Random.Range(-gunData.spread, gunData.spread);
 
+				SoundFXManager.instance.PlaySoundFXClip(shootSound, transform, 1f);
 				Vector3 directionWtihSpread = directionWithoutSpread + new Vector3(x, y, 0);
 
 				GameObject currentBullet = Instantiate(bullet, muzzle.position, muzzle.rotation);

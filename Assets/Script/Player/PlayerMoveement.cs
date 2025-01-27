@@ -12,7 +12,10 @@ public class PlayerMoveement : MonoBehaviour
 	private CharacterController controller;
 	private Vector3 velocity;
 
+	private float stepDelay = 0.5f; 
+	private float stepTimer = 0f; 
 
+	[SerializeField] private AudioClip[] audioClips;
 	private void Start()
 	{
 		controller = GetComponent<CharacterController>();
@@ -32,12 +35,41 @@ public class PlayerMoveement : MonoBehaviour
 			velocity.y = -2f;
 		}
 
-		if (Input.GetButtonDown("Jump") && controller.isGrounded)  // Fixe it so Plaer can jump when he want it 
+		if (Input.GetButtonDown("Jump") && controller.isGrounded)  // Fixe it so Player can jump when he want it 
 		{
 			velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 		}
 		velocity.y += gravity * Time.deltaTime;
 
+		//SoundFXManager.instance.PlayRandomSoundFXClip(audioClips, transform, 1f);
 		controller.Move(velocity * Time.deltaTime);
+
+
+		HandleFootstepSounds(move);
+	}
+
+
+	private void HandleFootstepSounds(Vector3 move)
+	{
+		if (controller.isGrounded && move.magnitude > 0.1f)
+		{
+			stepTimer -= Time.deltaTime;
+			if (stepTimer <= 0f)
+			{
+				PlayFootstepSound();
+				stepTimer = stepDelay;
+			}
+		}
+		else
+		{
+			stepTimer = 0f; 
+		}
+	}
+
+	private void PlayFootstepSound()
+	{
+		
+			SoundFXManager.instance.PlayRandomSoundFXClip(audioClips, transform, 1f);
+		
 	}
 }
