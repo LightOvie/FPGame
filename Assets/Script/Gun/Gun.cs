@@ -148,7 +148,7 @@ public class Gun : MonoBehaviour
 				}
 				else
 				{
-					Debug.Log("No hit detected.");
+					
 					targetPoint = ray.GetPoint(75);
 
 				}

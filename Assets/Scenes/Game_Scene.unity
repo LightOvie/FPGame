@@ -920,8 +920,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  sprintSpeed: 10
   jumpHeight: 5
-  audioClips:
+  walkClips:
   - {fileID: 8300000, guid: eec53751c4e79a7469fc34e774360128, type: 3}
   - {fileID: 8300000, guid: dbe4405baeea2404ba3d422430b5fd3b, type: 3}
   - {fileID: 8300000, guid: c8657061120b2da4fb645654b16201f6, type: 3}

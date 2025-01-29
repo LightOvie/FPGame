@@ -3571,7 +3571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc519971b1ca49747b2f872406dec540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 3
   _rotationSpeed: 5
   _maxHealth: 120
   _attackCooldown: 1.5

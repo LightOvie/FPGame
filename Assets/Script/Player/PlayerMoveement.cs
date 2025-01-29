@@ -7,15 +7,20 @@ public class PlayerMoveement : MonoBehaviour
 	const float gravity = -9.81f;
 
 	public float speed = 5f;
+	public float sprintSpeed = 10f;
 	public float jumpHeight = 2f;
 
 	private CharacterController controller;
 	private Vector3 velocity;
 
-	private float stepDelay = 0.5f; 
-	private float stepTimer = 0f; 
+	private float stepDelay = 0.5f;
+	private float stepTimer = 0f;
 
-	[SerializeField] private AudioClip[] audioClips;
+	[SerializeField] private AudioClip[] walkClips;
+
+
+
+	bool isSprinting = false;
 	private void Start()
 	{
 		controller = GetComponent<CharacterController>();
@@ -24,10 +29,16 @@ public class PlayerMoveement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+
+
 		float moveX = Input.GetAxis("Horizontal");
 		float moveZ = Input.GetAxis("Vertical");
+
+		isSprinting = Input.GetKey(KeyCode.LeftShift);
+		float currentSpeed = isSprinting ? sprintSpeed : speed;
 		Vector3 move = transform.right * moveX + transform.forward * moveZ;
-		controller.Move(move*speed * Time.deltaTime );
+		controller.Move(move * speed * Time.deltaTime);
+
 
 
 		if (controller.isGrounded && velocity.y < 0)
@@ -41,7 +52,7 @@ public class PlayerMoveement : MonoBehaviour
 		}
 		velocity.y += gravity * Time.deltaTime;
 
-		//SoundFXManager.instance.PlayRandomSoundFXClip(audioClips, transform, 1f);
+
 		controller.Move(velocity * Time.deltaTime);
 
 
@@ -53,6 +64,7 @@ public class PlayerMoveement : MonoBehaviour
 	{
 		if (controller.isGrounded && move.magnitude > 0.1f)
 		{
+			stepDelay = isSprinting ? 0.35f : 0.5f;
 			stepTimer -= Time.deltaTime;
 			if (stepTimer <= 0f)
 			{
@@ -62,14 +74,14 @@ public class PlayerMoveement : MonoBehaviour
 		}
 		else
 		{
-			stepTimer = 0f; 
+			stepTimer = 0f;
 		}
 	}
 
 	private void PlayFootstepSound()
 	{
 		
-			SoundFXManager.instance.PlayRandomSoundFXClip(audioClips, transform, 1f);
-		
+		SoundFXManager.instance.PlayRandomSoundFXClip(walkClips, transform, 1f);
+
 	}
 }
