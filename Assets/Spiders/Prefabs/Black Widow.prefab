@@ -3579,6 +3579,7 @@ MonoBehaviour:
   spawnPosition: {fileID: 1041070771967822295}
   damageTextPrefab: {fileID: 4227447675876588558, guid: eae385388e7267b42b747d1a5a8109b1, type: 3}
   textSpawnPoint: {fileID: 1041070771967822295}
+  damageSoundClip: {fileID: 8300000, guid: 80ce3b51c605c3f4eb593c908f16f6e4, type: 3}
 --- !u!95 &399634233581185706
 Animator:
   serializedVersion: 5

@@ -5,10 +5,13 @@ using UnityEngine;
 public class BulletDrop : MonoBehaviour
 {
 	int ammoAmount = 10;
+	
+	
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
+			
 			Debug.Log("Player Inside");
 			Gun gun = other.GetComponentInChildren<Gun>();
 			if (gun != null) {
@@ -19,7 +22,7 @@ public class BulletDrop : MonoBehaviour
 			}
 
 			Destroy(gameObject);	
-
+				
 		}
 	}
 

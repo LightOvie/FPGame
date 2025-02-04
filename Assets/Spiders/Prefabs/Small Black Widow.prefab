@@ -1480,7 +1480,7 @@ GameObject:
   - component: {fileID: 1854366038478195982}
   - component: {fileID: 4271095774316057725}
   - component: {fileID: 4918660230456999952}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Small Black Widow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1556,6 +1556,7 @@ MonoBehaviour:
   spawnPosition: {fileID: 780809363822076639}
   damageTextPrefab: {fileID: 4227447675876588558, guid: eae385388e7267b42b747d1a5a8109b1, type: 3}
   textSpawnPoint: {fileID: 780809363822076639}
+  damageSoundClip: {fileID: 8300000, guid: 80ce3b51c605c3f4eb593c908f16f6e4, type: 3}
 --- !u!95 &4271095774316057725
 Animator:
   serializedVersion: 5

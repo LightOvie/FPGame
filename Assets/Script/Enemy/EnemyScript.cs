@@ -22,14 +22,14 @@ public class EnemyScript : MonoBehaviour, IDamageable
 	GameObject ammoPrefab;
 	[SerializeField]
 	Transform spawnPosition;
-	float chanseToDrop = 50f;
+	float chanceToDrop = 50f;
 
 	[Header("Damage Text")]
 	[SerializeField] GameObject damageTextPrefab;
 	[SerializeField] Transform textSpawnPoint;
 
-	//[Header("Audio")]
-	//[SerializeField] private AudioClip damageSoundClip;
+	[Header("Audio")]
+	[SerializeField] private AudioClip damageSoundClip;
 
 	public float Health { get; set; }
 
@@ -123,7 +123,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
 	{
 		Health -= damage;
 		ShowDamageText(damage);
-		//SoundFXManager.instance.PlaySoundFXClip(damageSoundClip, transform,1f);
+		SoundFXManager.instance.PlaySoundFXClip(damageSoundClip, transform,0.25f);
 
 		if (Health <= 0)
 		{
@@ -148,7 +148,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
 	}
 	void SpawnAmmo()
 	{
-		if (ammoPrefab == null && spawnPosition == null)
+		if (ammoPrefab == null || spawnPosition == null)
 		{
 
 			return;
@@ -158,7 +158,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
 
 		float randomValue = Random.Range(0, 100f);
 
-		if (randomValue <= chanseToDrop)
+		if (randomValue <= chanceToDrop)
 		{
 			Instantiate(ammoPrefab, spawnPosition.position, Quaternion.identity);
 		}
