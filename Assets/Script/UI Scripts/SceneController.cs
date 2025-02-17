@@ -9,8 +9,11 @@ public class SceneController : MonoBehaviour
 
 	private void Awake()
 	{
-		
-		howToPlayPanel.SetActive(false);
+		if (howToPlayPanel != null)
+		{
+
+			howToPlayPanel.SetActive(false);
+		}
 	}
 
 	public void ActivePanel()

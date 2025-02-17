@@ -16,19 +16,22 @@ public class FirstPersonalRotation : MonoBehaviour
 	[SerializeField]
 	Transform crossHair;
 
+
 	float mouseX;
 	float mouseY;
 	float angle;
 
-	
-	public Transform weapon;
+	[Header("Follow objects")]
+	[SerializeField] Transform weapon;
+	[SerializeField] Transform flashLight;
+
 	[HideInInspector] public WeaponSway weaponSway;
 
 	void Start()
 	{
 		Cursor.lockState = CursorLockMode.Locked;
 		weaponSway = weapon.GetComponent<WeaponSway>();
-		
+		flashLight.position =transform.position;
 	}
 
 
@@ -36,10 +39,20 @@ public class FirstPersonalRotation : MonoBehaviour
 	{
 
 		Rotation();
-
+		UpdateFlashlightPosition();
 
 	}
 
+	private void UpdateFlashlightPosition()
+	{
+		if (flashLight != null)
+		{
+			
+			flashLight.position = playerHead.position;
+
+			flashLight.rotation = Quaternion.Euler(0f, playerHead.eulerAngles.y, 0f);
+		}
+	}
 	public void Rotation()
 	{
 
@@ -48,10 +61,10 @@ public class FirstPersonalRotation : MonoBehaviour
 		playerBody.Rotate(Vector3.up, mouseX);
 
 		angle -= mouseY;
-		angle = Mathf.Clamp(angle, -10, 30f);
+		angle = Mathf.Clamp(angle, -10, 20f);
 		playerHead.localRotation = Quaternion.Euler(angle, 0f, 0f);
 		weapon.localRotation = Quaternion.Euler(angle, 0f, 0f);
-
+		flashLight.localRotation = Quaternion.Euler(angle,0f,0f);
 		weaponSway.UpdateSway(mouseX, mouseY);
 
 

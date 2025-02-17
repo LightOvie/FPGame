@@ -16,6 +16,8 @@ public class Gun : MonoBehaviour
 	[SerializeField] Camera fpsCamera;
 	[SerializeField] TMP_Text bulletText;
 	[SerializeField] AudioClip shootSound;
+	
+	
 
 	float timeSinceLastShoot;
 
