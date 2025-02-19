@@ -39,7 +39,7 @@ public class FirstPersonalRotation : MonoBehaviour
 	{
 
 		Rotation();
-		UpdateFlashlightPosition();
+		
 
 	}
 
@@ -47,10 +47,9 @@ public class FirstPersonalRotation : MonoBehaviour
 	{
 		if (flashLight != null)
 		{
-			
-			flashLight.position = playerHead.position;
 
-			flashLight.rotation = Quaternion.Euler(0f, playerHead.eulerAngles.y, 0f);
+			flashLight.SetPositionAndRotation(playerHead.position, playerHead.rotation);
+
 		}
 	}
 	public void Rotation()
@@ -64,7 +63,7 @@ public class FirstPersonalRotation : MonoBehaviour
 		angle = Mathf.Clamp(angle, -10, 20f);
 		playerHead.localRotation = Quaternion.Euler(angle, 0f, 0f);
 		weapon.localRotation = Quaternion.Euler(angle, 0f, 0f);
-		flashLight.localRotation = Quaternion.Euler(angle,0f,0f);
+		UpdateFlashlightPosition();
 		weaponSway.UpdateSway(mouseX, mouseY);
 
 
