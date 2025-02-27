@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class SpiderEvent : MonoBehaviour
+public class EnemyEvent : MonoBehaviour
 {
 	[Header("Spider Attack")]
 	float attackDamage = 10f;
@@ -16,7 +16,7 @@ public class SpiderEvent : MonoBehaviour
 		playerMask = LayerMask.GetMask("Player");
 	}
 	//Look better why it's doesnt work
-	public void SpiderAttack()
+	public void EnemyAttack()
 	{
 		Collider[] hitPlayer = Physics.OverlapSphere(transform.position, attackRange, playerMask);
 

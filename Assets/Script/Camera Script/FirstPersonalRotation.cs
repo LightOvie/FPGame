@@ -48,7 +48,7 @@ public class FirstPersonalRotation : MonoBehaviour
 		if (flashLight != null)
 		{
 
-			flashLight.SetPositionAndRotation(playerHead.position, playerHead.rotation);
+			flashLight.SetPositionAndRotation(playerBody.position, playerBody.rotation);
 
 		}
 	}

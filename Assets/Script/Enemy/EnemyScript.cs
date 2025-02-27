@@ -43,6 +43,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
 	private bool isDead = false;
 
 
+
 	private void Start()
 	{
 		Health = _maxHealth;
@@ -130,7 +131,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
 
 			Die();
 		}
-	}
+	} 
 
 
 
