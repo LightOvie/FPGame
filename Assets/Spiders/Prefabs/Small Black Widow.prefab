@@ -1480,6 +1480,7 @@ GameObject:
   - component: {fileID: 1854366038478195982}
   - component: {fileID: 4271095774316057725}
   - component: {fileID: 4918660230456999952}
+  - component: {fileID: 5355752668988359963}
   m_Layer: 0
   m_Name: Small Black Widow
   m_TagString: Untagged
@@ -1590,6 +1591,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71226c55a2fb2e24aa8378fad1423717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5355752668988359963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3456052664175466945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6e7a159bd82ba47bb8f5ef50cfac08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundClip: {fileID: 8300000, guid: 46b25f0b98e6f6c499809e91924daa45, type: 3}
 --- !u!1 &3678509425225658542
 GameObject:
   m_ObjectHideFlags: 0

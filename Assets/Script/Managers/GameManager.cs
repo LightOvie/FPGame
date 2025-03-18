@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 	TMP_Text stopWatchDisplay;
 	[SerializeField]
 	TMP_Text deadEnimiesText;
+	
+	public TMP_Text hpDisplay;
 
 	[Header("Screens")]
 	//public GameObject pauseScreen;
@@ -53,7 +55,7 @@ public class GameManager : MonoBehaviour
 
 		deadEnimiesText.text = string.Format("Enimies: " + counterDeadEnimes.ToString());
 
-
+		
 
 
 		switch (currentState)

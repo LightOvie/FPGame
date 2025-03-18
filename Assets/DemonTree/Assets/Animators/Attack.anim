@@ -44315,21 +44315,21 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.4004
+  - time: 0.36703333
     functionName: EnemyAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.66733336
+  - time: 0.6339667
     functionName: EnemyAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.5682334
+  - time: 1.5348667
     functionName: EnemyAttack
     data: 
     objectReferenceParameter: {fileID: 0}
